@@ -8,9 +8,10 @@ public class task1 {
         int[] arr = buildArray(nums);
         System.out.println(Arrays.toString(arr));
     }
+
     public static int[] buildArray(int[] nums) {
         int[] ans = new int[nums.length];
-        for(int i = 0; i < (nums.length); i++) {
+        for (int i = 0; i < (nums.length); i++) {
             ans[i] = nums[nums[i]];
         }
         return ans;
