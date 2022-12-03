@@ -9,7 +9,7 @@ public class Peasant extends Unit{
     }
 
     @Override
-    public String toString() {
-        return "Крестьянин " + super.toString() + " доставка " + state;
+    public String getInfo() {
+        return "Крестьянин " + super.getInfo() + " доставка " + state;
     }
 }

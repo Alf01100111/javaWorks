@@ -10,7 +10,7 @@ public class Xbowman extends Unit{
     }
 
     @Override
-    public String toString() {
-        return "Арбалетчик " + super.toString() + ", выстрелы: " + shoots + ", " + state;
+    public String getInfo() {
+        return "Арбалетчик " + super.getInfo() + ", выстрелы: " + shoots + ", " + state;
     }
 }

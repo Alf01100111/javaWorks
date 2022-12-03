@@ -9,7 +9,7 @@ public class Sniper extends Unit{
     }
 
     @Override
-    public String toString() {
-        return "Снайпер " + super.toString() + ", выстрелы: " + shoots + ", " + state;
+    public String getInfo() {
+        return "Снайпер " + super.getInfo() + ", выстрелы: " + shoots + ", " + state;
     }
 }
