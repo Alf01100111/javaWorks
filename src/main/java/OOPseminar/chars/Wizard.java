@@ -1,14 +1,15 @@
-package OOPseminar;
+package OOPseminar.chars;
 
 import java.util.List;
 
 public class Wizard extends Unit{
     private boolean magic;
 
-    public Wizard(List gang) {
-        super(17, 12, new int[]{-5, -5}, 30, 9, "Stand");
+    public Wizard(List gang, int x, int y) {
+        super(17, 12, new int[]{-5, -5}, 30, 9, "Stand", "Wizard");
         magic = true;
         super.gang = gang;
+        super.position = new Vector2(x, y);
     }
 
     @Override
@@ -16,7 +17,7 @@ public class Wizard extends Unit{
         return "Волшебник " + super.getInfo() + ", магия, " + state;
     }
 
-    @Override
+    /*@Override
     public void step() {
         float minHealth = Integer.MAX_VALUE;
         int minIndex = -1;
@@ -34,5 +35,5 @@ public class Wizard extends Unit{
                 gang.get(minIndex).health = gang.get(minIndex).maxHealth;
             }
         }
-    }
+    }*/
 }

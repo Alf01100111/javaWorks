@@ -1,14 +1,37 @@
 package OOPseminar;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import OOPseminar.chars.*;
+
+import java.util.*;
 
 
 public class Main {
-    private static final int GANG_SIZE = 5;
+    public static final int GANG_SIZE = 10;
+
+    public static List<Unit> whiteSide;
+    public static List<Unit> blackSide;
+
     public static void main(String[] args) {
-        List<Unit> whiteSide = new ArrayList<>();
+        init();
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            ConsoleView.view();
+
+            whiteSide.forEach(unit -> unit.step(blackSide));
+            System.out.println();
+            blackSide.forEach(unit -> unit.step(whiteSide));
+            scanner.nextLine();
+        }
+
+        }
+
+
+
+
+
+        /*List<Unit> whiteSide = new ArrayList<>();
         List<Unit> blackSide = new ArrayList<>();
         while (whiteSide.size() < GANG_SIZE) {
             whiteSide.add(getUnit(0, whiteSide));
@@ -52,5 +75,47 @@ public class Main {
                 System.out.println(unit);
             }
         }
+    }*/
+
+    private static void init() {
+        whiteSide = new ArrayList<>();
+        blackSide = new ArrayList<>();
+
+        int x = 1;
+        int y = 1;
+        for (int i = 0; i < GANG_SIZE; i++) {
+            switch (new Random().nextInt(4)) {
+                case 0:
+                    whiteSide.add(new Peasant(whiteSide, x, y++));
+                    break;
+                case 1:
+                    whiteSide.add(new Robber(whiteSide, x, y++));
+                    break;
+                case 2:
+                    whiteSide.add(new Sniper(whiteSide, x, y++));
+                    break;
+                default:
+                    whiteSide.add(new Monk(whiteSide, x, y++));
+            }
+        }
+
+        x = GANG_SIZE;
+        y = 1;
+        for (int i = 0; i < GANG_SIZE; i++) {
+            switch (new Random().nextInt(4)) {
+                case 0:
+                    blackSide.add(new Peasant(blackSide, x, y++));
+                    break;
+                case 1:
+                    blackSide.add(new Spearman(blackSide, x, y++));
+                    break;
+                case 2:
+                    blackSide.add(new Xbowman(blackSide, x, y++));
+                    break;
+                default:
+                    blackSide.add(new Wizard(blackSide, x, y++));
+            }
+        }
+
     }
 }
