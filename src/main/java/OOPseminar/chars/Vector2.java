@@ -10,4 +10,8 @@ public class Vector2 {
         return false;
     }
 
+    public double getDist (Vector2 opposit) {
+        return Math.sqrt(Math.pow(opposit.x - this.x, 2) + Math.pow(opposit.y - this.y, 2));
+    }
+
 }

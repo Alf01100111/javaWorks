@@ -6,11 +6,13 @@ public class Monk extends Unit{
 
     private boolean magic;
 
-    public Monk(List<Unit> gang, int x, int y) {
+    public Monk(List<Unit> gang, List<Unit> side, int x, int y) {
         super(12, 7, new int[]{-4, -4}, 30, 5, "Stand", "Monk");
         super.gang = gang;
         magic = true;
         super.position = new Vector2(x, y);
+        super.side = side;
+
     }
 
     @Override
