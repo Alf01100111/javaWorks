@@ -23,6 +23,8 @@ public class Main {
             turnMove();
 
             scanner.nextLine();
+            System.out.println(blackSide.size());
+            System.out.println(whiteSide.size());
             }
 
         }

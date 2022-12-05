@@ -1,6 +1,7 @@
 package OOPseminar.chars;
 
 import java.util.List;
+import java.util.Random;
 
 public abstract class Unit implements UnitInterface {
     protected int attack;
@@ -13,6 +14,7 @@ public abstract class Unit implements UnitInterface {
     protected List<Unit> gang, side;
     protected Vector2 position;
     protected String name;
+    protected int quantity;
 
 
     public Unit(int attack, int protect, int[] damage, float health, int speed, String state, String name){
@@ -24,6 +26,7 @@ public abstract class Unit implements UnitInterface {
         this.state = state;
         this.maxHealth = health;
         this.name = name;
+        quantity = new Random().nextInt(1, 21);
     }
 
     public void setAction(String state) {
