@@ -1,6 +1,7 @@
 package OOPseminar.chars;
 
 import java.util.List;
+import java.util.Random;
 
 public class Peasant extends Unit{
     private boolean delivery;
@@ -10,6 +11,7 @@ public class Peasant extends Unit{
         delivery = true;
         super.position = new Vector2(x, y);
         super.side = side;
+        quantity = new Random().nextInt(1, 20);
 
     }
 

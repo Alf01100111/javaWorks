@@ -1,6 +1,7 @@
 package OOPseminar.chars;
 
 import java.util.List;
+import java.util.Random;
 
 public class Sniper extends Unit{
     private int shoots;
@@ -11,6 +12,7 @@ public class Sniper extends Unit{
         super.position = new Vector2(x, y);
         shoots = 32;
         super.side = side;
+        quantity = new Random().nextInt(1, 5);
     }
 
     @Override

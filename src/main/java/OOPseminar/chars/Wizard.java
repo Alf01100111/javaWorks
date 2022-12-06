@@ -1,6 +1,7 @@
 package OOPseminar.chars;
 
 import java.util.List;
+import java.util.Random;
 
 public class Wizard extends Unit{
     private boolean magic;
@@ -11,6 +12,7 @@ public class Wizard extends Unit{
         super.gang = gang;
         super.position = new Vector2(x, y);
         super.side = side;
+        quantity = new Random().nextInt(1, 7);
     }
 
     @Override
@@ -18,7 +20,7 @@ public class Wizard extends Unit{
         return "Волшебник " + super.getInfo() + ", магия, " + state;
     }
 
-    /*@Override
+    @Override
     public void step() {
         float minHealth = Integer.MAX_VALUE;
         int minIndex = -1;
@@ -36,5 +38,5 @@ public class Wizard extends Unit{
                 gang.get(minIndex).health = gang.get(minIndex).maxHealth;
             }
         }
-    }*/
+    }
 }

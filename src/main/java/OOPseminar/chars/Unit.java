@@ -27,6 +27,7 @@ public abstract class Unit implements UnitInterface {
         this.maxHealth = health;
         this.name = name;
         quantity = new Random().nextInt(1, 21);
+
     }
 
     public void setAction(String state) {
@@ -60,7 +61,7 @@ public abstract class Unit implements UnitInterface {
 
     @Override
     public String getInfo() {
-        return "А:" + attack + ", Защ:" + protect + ", У:" + (damage[0] + damage[1]) / 2 + ", Зд:" + health + ", C:" + speed;
+        return "A:" + attack + ", Def:" + protect + ", Dmg:" + (damage[0] + damage[1]) / 2 + ", HP:" + health + ", Spd:" + speed + ", St" + state + ", Qnt" + quantity;
     }
 
     public String getName() {
@@ -69,19 +70,28 @@ public abstract class Unit implements UnitInterface {
 
     public float calcDamage (Unit unit) {
         if(unit.protect - this.attack == 0) {
-            return (this.damage[0] + this.damage[1]) / 2.0f;
+            return ((this.damage[0] + this.damage[1]) / 2.0f) * quantity;
         }
         if(unit.protect - this.attack < 0) {
-            return this.damage[1];
+            return this.damage[1] * quantity;
         }
-        return this.damage[0];
+        return this.damage[0] *quantity;
     }
 
     public void getHit(float damage) {
-        this.health -= damage;
-        if (this.health <= 0) {
+
+        float tmpHealth = (quantity - 1) * maxHealth + health;
+        tmpHealth -= damage;
+        if (tmpHealth <= 0) {
             this.health = 0;
             this.state = "dead";
+        } else {
+            quantity = (int) (tmpHealth / maxHealth);
+            health = maxHealth;
+            if (tmpHealth % maxHealth > 0) {
+                quantity++;
+                health = tmpHealth % maxHealth;
+            }
         }
     }
 

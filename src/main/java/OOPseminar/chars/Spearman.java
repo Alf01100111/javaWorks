@@ -1,6 +1,7 @@
 package OOPseminar.chars;
 
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Spearman extends Unit{
@@ -11,6 +12,7 @@ public class Spearman extends Unit{
         super.gang = gang;
         super.position = new Vector2(x, y);
         super.side = side;
+        quantity = new Random().nextInt(2, 15);
     }
 
     @Override

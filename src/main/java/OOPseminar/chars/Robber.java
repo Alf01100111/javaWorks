@@ -1,6 +1,7 @@
 package OOPseminar.chars;
 
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Robber extends Unit{
@@ -10,6 +11,7 @@ public class Robber extends Unit{
         super.gang = gang;
         super.position = new Vector2(x, y);
         super.side = side;
+        quantity = new Random().nextInt(5, 10);
     }
 
     @Override
